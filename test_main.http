@@ -1,0 +1,26 @@
+### 1. 测试正常新增任务 (预期返回 201)
+POST http://127.0.0.1:8000/tasks
+Content-Type: application/json
+
+{
+    "title": "这是我的新任务"
+}
+
+### 2. 测试获取所有任务 (预期能看到刚才新增的 id=4 的任务)
+GET http://127.0.0.1:8000/tasks
+
+### 3. 测试空标题校验 (预期返回 422)
+POST http://127.0.0.1:8000/tasks
+Content-Type: application/json
+
+{
+    "title": ""
+}
+
+### 4. 测试缺少标题字段 (预期返回 422)
+POST http://127.0.0.1:8000/tasks
+Content-Type: application/json
+
+{
+    "completed": true
+}
